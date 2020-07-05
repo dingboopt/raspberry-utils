@@ -1,0 +1,2 @@
+mount -v -t vfat -o offset=$((8192*512))  2020-05-27-raspios-buster-lite-armhf.img /mnt/boot/
+mount -v -t ext4 -o offset=$((532480*512))  2020-05-27-raspios-buster-lite-armhf.img /mnt/rootfs/
