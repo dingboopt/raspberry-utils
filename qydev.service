@@ -1,0 +1,19 @@
+#put this file in /etc/systemd/system/qydev.service.
+#systemctl enable qydev.service
+#systemctl start qydev.service
+
+[Unit]
+Description=qydev
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/qydev_linux_arm  -k ng2d68ns0l 
+#RemainAfterExit=no
+#Restart=always
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -9 $MAINPID
+Restart=on-failure
+RestartSec=20s
+
+[Install]
+WantedBy=default.target
